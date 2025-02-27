@@ -20,3 +20,7 @@ func progressBarNumber (tasks: [Task], routine: Routine) -> CGFloat {
 
     return number
 }
+
+//static func (size: CGFloat, weight: Font.Weight, design: Font.Design) -> Font {
+//    return
+//}

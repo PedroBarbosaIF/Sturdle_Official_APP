@@ -30,8 +30,8 @@ struct RoutineView: View {
             
             Rectangle()
                 .foregroundStyle(
-                    .blueSturdle.gradient
-                        .shadow(.inner(color: .white.opacity(0.3), radius: 3, x: 1, y: 1))
+                    .blueSturdle
+                        .shadow(.inner(color: .black.opacity(0.35), radius: 15, x: 10, y: -10))
                         .shadow(.drop(radius: 5, x: 5, y: 5))
                 )
                 .frame(width: 392, height: 162)
@@ -41,9 +41,8 @@ struct RoutineView: View {
                 HStack{
                     Text(routine.name)
                         .font(.system(size: 25, weight: .bold))
-                        .multilineTextAlignment(.center)
                         .foregroundColor(.white)
-                        .frame(width: 200, height: 28)
+                        .frame(width: 200, height: 28, alignment: .leading)
                         
                     Spacer()
                         .frame(width: 140, height: 10)
@@ -66,12 +65,11 @@ struct RoutineView: View {
                 HStack{
                     Text("\(tasks.filter { $0.routine.id == routine.id }.filter { $0.isDone }.count)/\(tasks.filter { $0.routine.id == routine.id }.count)")
                         .font(.system(size: 25, weight: .bold))
-                        .multilineTextAlignment(.center)
                         .foregroundColor(.white)
-                        .frame(width: 113, height: 28)
-                    
-                    
+                        .frame(width: 113, height: 28, alignment: .leading)
                     Spacer()
+                        .frame(width: 240)
+                    
                 }
                 ZStack(alignment: .leading){
                     Rectangle()
@@ -80,11 +78,11 @@ struct RoutineView: View {
                         .background(.white.opacity(0.6))
                         .cornerRadius(24)
                     
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: progressBarNumber(tasks: tasks, routine: routine), height: 8)
-                            .background(Color(red: 0.01, green: 1, blue: 0.82))
-                            .cornerRadius(24)
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: progressBarNumber(tasks: tasks, routine: routine), height: 8)
+                        .background(.white)
+                        .cornerRadius(24)
                         
 //                        Spacer()
 //                            .frame(width: 350, height: 1)

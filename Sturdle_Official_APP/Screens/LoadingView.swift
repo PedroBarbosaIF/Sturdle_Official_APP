@@ -33,7 +33,7 @@ struct LoadingView: View {
                             .foregroundColor(.black)
                             .frame(width: 175.94608, height: 36.4, alignment: .top)
                         
-                        Text("PeChaGuSa")
+                        Text("Sturdle Team")
                             .font(Font.custom("Roboto", size: 36))
                             .multilineTextAlignment(.center)
                             .foregroundColor(.black)

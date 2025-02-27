@@ -19,10 +19,12 @@ struct TaskView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.clear)
+                .foregroundStyle(
+                    .blueSturdle
+                        .shadow(.inner(color: .black.opacity(0.35), radius: 10, x: 1, y: -7))
+                        .shadow(.drop(radius: 5, x: 5, y: 5))
+                )
                 .frame(width: 392, height: 67)
-                .background(.blue)
-                .shadow(color: .black, radius: 7, x: 5, y: -8)
                 .cornerRadius(15)
             
             HStack{
@@ -68,7 +70,7 @@ struct TaskView: View {
 }
 
 func fakeTask() -> Task{
-    return Task(name: "TESTE MUITO PICAaaaaaa",
+    return Task(name: "TESTE MUITO incrivl",
                 deadline: .now,
                 isDone: false,
                 routine: fakeRoutine())

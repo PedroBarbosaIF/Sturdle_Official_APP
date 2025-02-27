@@ -21,14 +21,25 @@ struct TasksView: View {
             ScrollView {
                 VStack{
                     HStack{
-                        Text("Topics")
+                        Text("Tasks")
+                            .bold()
                         Spacer()
-                        // .frame(width: 320)
+                         .frame(width: 320)
                         
                         Button{
                             isPresentedAddTaskView = true
                         }label: {
-                            Image(systemName: "plus")
+                            Text("+")
+                              .font(Font.custom("Roboto", size: 40))
+                              .foregroundColor(.black)
+                        }
+                    }
+                    if tasksFromRoutine.count == 0{
+                        HStack(alignment: .center, spacing: 10) {
+                            Text("No tasks found")
+                                .bold()
+                                .font(.system(size: 20))
+                                .foregroundStyle(.gray)
                         }
                     }
                     

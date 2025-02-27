@@ -19,24 +19,41 @@ struct RoutinesView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                if routines.count == 0{
-                    HStack(alignment: .center, spacing: 10) {
-                        Text("Ops, parece que você ainda não criou nenhuma rotina!")
-                            .font(
-                                Font.custom("SF Pro Display", size: 15)
-                                    .weight(.medium)
-                            )
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(Color(red: 0.4, green: 0.4, blue: 0.4))
+                HStack{
+                    Spacer()
+                        .frame(width: 370)
+                    NavigationLink(destination: MethodsGuideView(), label: {
+                        Text("?")
+                            .bold()
+                            .font(.system(size: 30))
+                            .foregroundStyle(.black)
+                    })
+                }
+                HStack{
+                    Text("Tasks")
+                        .bold()
+                    
+                    Spacer()
+                     .frame(width: 320)
+                    
+                    Button{
+                        isShowingSheet = true
+                    }label: {
+                        Text("+")
+                          .font(Font.custom("Roboto", size: 40))
+                          .foregroundColor(.black)
                     }
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 11)
-                    .frame(width: 394, height: 52, alignment: .center)
-                    .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .cornerRadius(50)
-                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                 }
                 
+                if routines.count == 0{
+                    HStack(alignment: .center, spacing: 10) {
+                        Text("No routines found")
+                            .bold()
+                            .font(.system(size: 20))
+                            .foregroundStyle(.gray)
+                    }
+                    
+                }
                 ForEach(routines){ routine in
                     NavigationLink(destination: TasksView(routine: routine)){
                         RoutineView(routine: routine)
@@ -46,21 +63,12 @@ struct RoutinesView: View {
                 
                 Spacer()
                 
-                Button{
-                    isShowingSheet = true
-                }label: {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .foregroundStyle(.blueSturdle.gradient)
-                        .frame(width: 50, height: 65)
-                }
-                
             }
             
             .navigationTitle("Routines")
             .sheet(isPresented: $isShowingSheet){
                 AddRoutineView(isShowingSheet: $isShowingSheet, doesHaveRoutine: $doesHaveRoutine)
+                    .presentationDetents([.medium])
             }
 //            .onChange(of: search){
 //                if
