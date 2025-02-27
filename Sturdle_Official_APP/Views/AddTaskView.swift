@@ -19,7 +19,7 @@ struct AddTaskView: View {
     
     var body: some View {
         VStack {
-            Text("Topic name: ")
+            Text("Task name: ")
                 .bold()
                 .font(.largeTitle)
             TextField("Write here!", text: $name)
@@ -27,11 +27,11 @@ struct AddTaskView: View {
                 .padding()
             VStack(alignment: .center) {
                 Spacer()
-                Text("Topic deadline: ")
+                Text("Task deadline: ")
                     .bold()
                     .font(.largeTitle)
                 DatePicker(
-                    "Topic deadline:",
+                    "Task deadline:",
                     selection: $deadline,
                     displayedComponents: [.date]
                 )

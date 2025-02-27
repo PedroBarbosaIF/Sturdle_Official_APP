@@ -49,7 +49,7 @@ struct TasksView: View {
                     
                 }
             }
-            .frame(alignment: .top)
+//            .frame(alignment: .top)
             .sheet(isPresented: $isPresentedAddTaskView){
                 AddTaskView(isShowingSheet: $isPresentedAddTaskView,
                             routine: routine)
